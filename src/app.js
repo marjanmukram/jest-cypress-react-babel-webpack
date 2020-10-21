@@ -8,6 +8,13 @@ import * as themes from './themes'
 function App({user, logout}) {
   const [theme, setTheme] = React.useState('dark')
   const handleThemeChange = ({target: {value}}) => setTheme(value)
+  // console.log(theme);
+  // debugger
+  if (window.Cypress) {
+    debugger
+    window.theme = theme
+    window.setTheme = setTheme
+  }
   return (
     <ThemeProvider theme={themes[theme]}>
       <Calculator />

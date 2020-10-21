@@ -1,7 +1,7 @@
 describe('anonymous calculator', () => {
   it('can make calculations', () => {
     cy.visit('/')
-      .get('._2S_Gj6clvtEi-dZqCLelKb > :nth-child(3)')
+      .findByText(/^i$/)
       .click()
       .get('._1yUJ9HTWYf2v-MMhAEVCAn > :nth-child(4)')
       .click()

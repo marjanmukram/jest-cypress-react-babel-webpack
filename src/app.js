@@ -11,7 +11,7 @@ function App({user, logout}) {
   // console.log(theme);
   // debugger
   if (window.Cypress) {
-    debugger
+    // debugger
     window.theme = theme
     window.setTheme = setTheme
   }
@@ -52,9 +52,12 @@ function App({user, logout}) {
         }}
       >
         {user ? (
-          <button type="button" onClick={logout}>
-            Logout
-          </button>
+          <>
+            <div data-testid="username-display">{user.username}</div>
+            <button type="button" onClick={logout}>
+              Logout
+            </button>
+          </>
         ) : (
           <>
             <Link to="/register">Register</Link>

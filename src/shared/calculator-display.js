@@ -21,7 +21,7 @@ function CalculatorDisplay({value, ...props}) {
 
   return (
     <DisplayContainer {...props}>
-      <AutoScalingText>{formattedValue}</AutoScalingText>
+      <AutoScalingText >{formattedValue}</AutoScalingText>
     </DisplayContainer>
   )
 }

@@ -26,13 +26,7 @@ describe('anonymous calculator', () => {
 describe('authenticated calculator', () => {
   it('displays the user name', () => {
     cy.createUser().then(user => {
-      cy.request({
-        method: 'POST',
-        url: 'http://localhost:3000/login',
-        body: user,
-      }).then(response => {
-        window.localStorage.setItem('token', response.body.user.token)
-      })
+      cy.login(user)
       cy.visit('/')
       cy.findByTestId('username-display').should('have.text', user.username)
       cy.findByText(/logout/i).click()

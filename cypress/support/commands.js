@@ -16,6 +16,13 @@ Cypress.Commands.add('login', user => {
     body: user,
   }).then(response => {
     window.localStorage.setItem('token', response.body.user.token)
+    return {...response.body.user, ...user}
+  })
+})
+
+Cypress.Commands.add('createNewUserAndLogin', () => {
+  cy.createUser().then(user => {
+    cy.login(user)
   })
 })
 

@@ -10,12 +10,8 @@ describe('registration', () => {
     cy.findByLabelText(/password/i).type(user.password)
     cy.findByText(/submit/i)
       .click()
-      .url()
-      .should('eq', `${Cypress.config().baseUrl}/`)
-      .window()
-      .its('localStorage.token')
-      .should('be.a', 'string')
-    cy.findByTestId('username-display').should('have', user.username)
+      .assertHome()
+      .assertIsLoggedIn(user)
   })
 
   it('should throw an error message if there is an error in registering', () => {
